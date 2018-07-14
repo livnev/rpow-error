@@ -1,4 +1,4 @@
-module rpowBound where
+module rpowErrorProof where
 
 open import Data.Empty
 open import Data.Bool.Base
