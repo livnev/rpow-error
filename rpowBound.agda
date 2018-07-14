@@ -8,7 +8,8 @@ open import Relation.Binary
 open import Relation.Binary.PropositionalEquality
 open Relation.Binary.PropositionalEquality.≡-Reasoning
 open import Data.Product
-open import Data.Nat as ℕ using (ℕ; suc) renaming (zero to 0ℕ; _+_ to _+ℕ_; _*_ to _*ℕ_; _≥_ to _≥ℕ_)
+open import Data.Nat as ℕ using (ℕ; suc) renaming (zero to 0ℕ; _+_ to _+ℕ_; _*_ to _*ℕ_; _^_ to _^ℕ_; _≥_ to _≥ℕ_; _<_ to _<ℕ_)
+open import Data.Integer as ℤ using (∣_∣) renaming (_⊖_ to _-ℕ_)
 open import Data.Nat.DivMod using (_divMod_; DivMod)
 
 1ℕ = suc 0ℕ
@@ -92,5 +93,5 @@ rpow-bound :  (rpow : ℕ → ℕ → ℕ → ℕ₊ → ℕ)
               → (rpow-spec-axiom-4 rpow)
               → (rpow-spec-axiom-5 rpow)
               → (z x : ℕ) → (n : ℕ) → (b : ℕ₊)
-              → (∃[ ε ] ((rpow z x n b) ≡ {!!}))
+              → (∣ (((asℕ b) ^ℕ n) *ℕ (rpow z x n b) -ℕ z *ℕ (x ^ℕ n)) ∣ <ℕ {!!})
 rpow-bound = {!!}
